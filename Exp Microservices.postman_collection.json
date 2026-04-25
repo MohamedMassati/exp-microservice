@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "74c82244-1278-41c4-b84e-fc5a2ba3c74c",
+    "name": "Exp Microservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53071088"
+  },
+  "item": [
+    {
+      "name": "Produit service",
+      "item": [
+        {
+          "name": "PostProduit",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nom\": \"Nespresso Arpeggio\",\r\n    \"description\": \"Étui de 10 capsules de café intense\",\r\n    \"prix\": 45\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:4000/produit/ajouter",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "produit",
+                "ajouter"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AcheterProduits",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ids\":[\r\n        \"69ed0b9909f6a84ce520d2fd\",\r\n        \"69ed0c3109f6a84ce520d2ff\"\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:4000/produit/acheter",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "produit",
+                "acheter"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Commande service",
+      "item": [
+        {
+          "name": "AjouterCommade",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWVkYWxhb3VpQGdtYWlsLmNvbSIsIm5vbSI6IkFobWVkIEFsYW91aSIsImlhdCI6MTc3NzE0NDA0OH0.akDom4WmjBqXamm0WAGnqQP2s8dzdv_CTHgAQEW9GxM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email_utilisateur\" : \"ahmedalaoui@gmail.com\",\r\n    \"ids\":[\r\n        \"69ed0b9909f6a84ce520d2fd\",\r\n        \"69ed0c3109f6a84ce520d2ff\"\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4001/commande/ajouter",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4001",
+              "path": [
+                "commande",
+                "ajouter"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth service",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nom\": \"Ahmed Alaoui\",\r\n    \"email\": \"ahmedalaoui@gmail.com\",\r\n    \"mot_passe\": \"12345\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4002/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ahmedalaoui@gmail.com\",\r\n    \"mot_passe\": \"12345\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4002/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
